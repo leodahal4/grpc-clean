@@ -1,0 +1,33 @@
+syntax = "proto3";
+option go_package = "./proto";
+
+service UserService {
+  rpc Create(CreateUserRequest) returns (UserProfileResponse);
+  rpc Read(SingleUserRequest) returns (UserProfileResponse);
+  rpc Update(UpdateUserRequest) returns (SuccessResponse);
+  rpc Delete(SingleUserRequest) returns (SuccessResponse);
+}
+
+message CreateUserRequest{
+  string name = 1;
+  string email = 2;
+}
+
+message SingleUserRequest{
+  string id = 1;
+}
+
+message UserProfileResponse{
+  string id = 1;
+  string name = 2;
+  string email = 3;
+}
+
+message SuccessResponse{
+  string response = 1;
+}
+
+message UpdateUserRequest{
+  string id = 1;
+  string name = 2;
+}

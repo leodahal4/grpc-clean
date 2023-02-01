@@ -1,0 +1,3 @@
+module grpc-clean
+
+go 1.19
